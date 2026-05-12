@@ -1,0 +1,24 @@
+.note-form {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #note-input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    border: 1px solid gray;
+    flex-grow: 2;
+  }
+  
+  .btn-save {
+    background-color: hsl(135, 99%, 42%);
+    color: white;
+    padding: 1rem 2.5rem 1rem 2.5rem;
+    border-radius: 1.5rem;
+    border: none;
+    margin-left: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  

@@ -1,7 +1,33 @@
+import { useState } from "react";
 import "./App.css";
+import TaskControl from "./Components/Taskcontrol/TaskControl";
+import TaskList from "./Components/Tasklist/TaskList";
+import TaskForm from "./Components/Taskform/TaskForm";
 
 const App = () => {
-  const links = ["all", "Completed", "Uncompleted", "Priority"];
+  const [tasks, setTasks] = useState([
+    {
+      id: 1,
+      task: "Learn to code",
+      done: false,
+    },
+    {
+      id: 2,
+      task: "Create a project",
+      done: false,
+    },
+    {
+      id: 3,
+      task: "Become a developer",
+      done: false,
+    },
+  ]);
+
+  const addTask = (newTask) => {
+    const updatedTask = [...tasks, newTask];
+
+    setTasks(updatedTask);
+  };
 
   return (
     <div className="header">
@@ -9,16 +35,9 @@ const App = () => {
         <span>Note_Pad</span>
       </div>
 
-      <div className="note-form">
-        <input id="note-input" type="text" placeholder="Make a new note..." />
-        <button className="btn-save">Save</button>
-      </div>
-
-      <div className="nav-sec">
-        {links.map((link) => (
-          <button key={link} className="nav-link">{link}</button>
-        ))}
-      </div>
+      <TaskForm addTask={addTask} />
+      <TaskControl />
+      <TaskList tasks={tasks} />
     </div>
   );
 };

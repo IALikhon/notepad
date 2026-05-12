@@ -4,7 +4,7 @@
     justify-content: center;
   }
   
-  .nav-link {
+.nav-link {
     display: flex;
     justify-self: center;
     justify-content: center;
@@ -16,4 +16,12 @@
     margin: 1px;
     background-color: hsl(0, 0%, 100%);
   }
-  
+  .nav-link:hover{
+    background-color: hsl(0, 10%, 90%);
+  }
+
+  .nav-link.active{
+    background-color: hsl(190, 92%, 49%);
+    color: azure;
+    border: none;
+  }

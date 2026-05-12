@@ -1,13 +1,17 @@
 import "./TaskControl.css";
 
-const TaskControl = () => {
-  const links = ["all", "Completed", "Uncompleted", "Priority"];
+const TaskControl = ({ activeFilter, setActiveFilter }) => {
+  const links = ["all", "completed", "uncompleted", "priority"];
 
   return (
     <div className="nav-sec">
       {links.map((link) => (
-        <button key={link} className="nav-link">
-          {link}
+        <button
+          key={link}
+          onClick={() => setActiveFilter(link)}
+          className= {`nav-link ${activeFilter === link ? "active" : ""}`}
+        >
+          <span> {link} </span>
         </button>
       ))}
     </div>

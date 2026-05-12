@@ -23,6 +23,15 @@ const App = () => {
     },
   ]);
 
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  const filteredTask = tasks.filter((task) => {
+    if (activeFilter === "all") return true;
+    if (activeFilter === "completed") return task.done;
+    if (activeFilter === "uncompleted") return !task.done;
+    return true;
+  });
+
   const addTask = (newTask) => {
     const updatedTask = [...tasks, newTask];
 
@@ -43,8 +52,8 @@ const App = () => {
       </div>
 
       <TaskForm addTask={addTask} />
-      <TaskControl />
-      <TaskList tasks={tasks} toggleTaskDone={toggleTaskDone} />
+      <TaskControl activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
+      <TaskList tasks={filteredTask} toggleTaskDone={toggleTaskDone} />
     </div>
   );
 };

@@ -29,6 +29,13 @@ const App = () => {
     setTasks(updatedTask);
   };
 
+  const toggleTaskDone = (id) => {
+    const updatedTask = tasks.map((task) =>
+      task.id === id ? { ...task, done: !task.done } : task,
+    );
+    setTasks(updatedTask);
+  };
+
   return (
     <div className="header">
       <div className="header_name">
@@ -37,7 +44,7 @@ const App = () => {
 
       <TaskForm addTask={addTask} />
       <TaskControl />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} toggleTaskDone={toggleTaskDone} />
     </div>
   );
 };

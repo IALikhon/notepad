@@ -10,6 +10,7 @@ const TaskForm = ({ addTask }) => {
         id: Date.now(),
         task: newTask,
         done: false,
+        priority: false,
       });
 
       setNewTask("");
@@ -23,6 +24,7 @@ const TaskForm = ({ addTask }) => {
         placeholder="Make a new note..."
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
       />
       <button className="btn-save" onClick={handleSubmit}>
         Save
